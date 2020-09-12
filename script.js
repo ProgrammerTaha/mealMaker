@@ -12,21 +12,28 @@ const menu = {
     desserts []
   },
   get appetizers() {
-    ;
-  }
+    return this._courses.appetizers;
+  },
   set appetizers(appetizer) {
-    ;
-  }
+    return this._courses.appetizers = appetizer;
+  },
   get mains() {
-    ;
-  }
+    return this._courses.mains;
+  },
   set mains(main) {
-    ;
-  }
+    return this._courses.mains = main;
+  },
   get desserts() {
-    ;
-  }
+    return this._courses.desserts;
+  },
   set desserts(dessert) {
-    ;
+    return this._courses.desserts = dessert;
+  },
+  get courses() {
+    return {
+      appetizers: this.appetizers,
+      mains: this.mains,
+      desserts: this.desserts
+    };
   }
 };
