@@ -9,7 +9,7 @@ const menu = {
   _courses: {
     appetizers: [],
     mains: [],
-    desserts []
+    desserts: []
   },
   get appetizers() {
     return this._courses.appetizers;
@@ -36,6 +36,13 @@ const menu = {
       desserts: this.desserts
     };
   },
-  //used to add a new dish
-  addDishToCourse()
+  //used to add a new dish to the specified course on the menu.
+  addDishToCourse(courseName, dishName, dishPrice) {
+    const dish = {
+      name: dishName,
+      price: dishPrice
+    };
+    return this._courses[courseName].push(dish);
+  }
 };
+
