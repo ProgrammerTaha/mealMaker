@@ -43,6 +43,12 @@ const menu = {
       price: dishPrice
     };
     return this._courses[courseName].push(dish);
-  }
+  },
+  //get a random dish from a course on the menu, which will be necessary for generating a random meal.
+  getRandomDishFromCourse(courseName) {
+    const dishes = this._courses[courseName];
+    const randomDish = Math.floor(Math.random() * dishes.length);
+    return dishes[randomDish];
+  },
 };
 
