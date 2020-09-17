@@ -40,7 +40,7 @@ const menu = {
   addDishToCourse(courseName, dishName, dishPrice) {
     const dish = {
       name: dishName,
-      price: dishPrice
+      price: dishPrice,
     };
     return this._courses[courseName].push(dish);
   },
@@ -50,5 +50,25 @@ const menu = {
     const randomDish = Math.floor(Math.random() * dishes.length);
     return dishes[randomDish];
   },
+  generateRandomMeal() {
+    const appetizer = this.getRandomDishFromCourse('appetizers');
+    const main = this.getRandomDishFromCourse('mains');
+    const dessert = this.getRandomDishFromCourse('desserts');
+    const totalPrice = appetizer.price + main.price + dessert.price;
+    return `Your menu is:\n appetizers: ${appetizer.name}\n mains dish: ${main.name}\n desserts: ${dessert.name}\n The total price is ${totalPrice}`;
+  },
 };
 
+menu.addDishToCourse('appetizers', 'mashrom', 3.00);
+menu.addDishToCourse('mains', 'pizza', 12.00);
+menu.addDishToCourse('desserts', 'Cola', 2.00);
+
+menu.addDishToCourse('appetizers', 'salad', 4.00);
+menu.addDishToCourse('mains', 'chicken', 15.00);
+menu.addDishToCourse('desserts', 'Cheese cake', 5.00);
+
+menu.addDishToCourse('appetizers', 'water', 1.00);
+menu.addDishToCourse('mains', 'thrilled checken', 13.00);
+menu.addDishToCourse('desserts', 'Cake', 5.00);
+const meal = menu.generateRandomMeal();
+console.log(meal);
